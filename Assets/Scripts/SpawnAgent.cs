@@ -6,7 +6,7 @@ public class SpawnAgent : MonoBehaviour
 {
     [SerializeField] GameObject agent;
     [SerializeField] int maxAgentNumber;
-    [SerializeField] float spawnDelay;
+    [SerializeField] int spawnDelayMin, spawnDelayMax;
     private int xPos;
     private int zPos;
     private int agentCount;
@@ -24,7 +24,7 @@ public class SpawnAgent : MonoBehaviour
             xPos = Random.Range(0, 10);
             zPos = Random.Range(0, 10);
             Instantiate(agent, new Vector3(xPos, 0.34f, zPos), Quaternion.identity);
-            yield return new WaitForSeconds(spawnDelay);
+            yield return new WaitForSeconds(Random.Range(spawnDelayMin,spawnDelayMax));
             agentCount++;
         }
     }
