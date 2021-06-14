@@ -14,17 +14,15 @@ public class SpawnAgent : MonoBehaviour
 
     void Start()
     {
-        StartCoroutine(Spawn());
+        InvokeRepeating("Spawn", 0, 1);
     }
 
-    private IEnumerator Spawn()
+    private void Spawn()
     {
-        while (agentCount <= maxAgentNumber)
         {
             xPos = Random.Range(0, 10);
             zPos = Random.Range(0, 10);
             Instantiate(agent, new Vector3(xPos, 0.34f, zPos), Quaternion.identity);
-            yield return new WaitForSeconds(Random.Range(spawnDelayMin,spawnDelayMax));
             agentCount++;
         }
     }

@@ -869,5 +869,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   agent: {fileID: 3050444098828828643, guid: 689f8028f2cf56c49906c6ecc28700ac, type: 3}
   maxAgentNumber: 10
-  spawnDelayMin: 1
-  spawnDelayMax: 2
+  spawnDelayMin: 0
+  spawnDelayMax: 10
