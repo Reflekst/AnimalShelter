@@ -5,12 +5,13 @@ using UnityEngine;
 public class AgentDataScript : ScriptableObject
 {
     private int healthPoint;
+    private int speed;
 
     private void OnEnable()
     {
         healthPoint = 3;   
     }
-    
+
     private void TakeDamage()
     {
         healthPoint--;
@@ -21,7 +22,7 @@ public class AgentDataScript : ScriptableObject
     }
     private void Death()
     {
-
+        //DestroyObject();
     }    
 
 }

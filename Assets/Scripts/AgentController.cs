@@ -4,15 +4,35 @@ using UnityEngine;
 
 public class AgentController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private Rigidbody rb;
+    Vector3 moveDirection;
+
+    private void OnTriggerEnter(Collider other)
     {
-        
+        ChangeDestination();
+    }
+    private void OnTriggerStay(Collider other)
+    {
+        ChangeDestination();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        
+        rb = this.GetComponentInChildren<Rigidbody>();
+        ChangeDestination();
+    }
+    private void FixedUpdate()
+    {
+        Move();
+    }
+
+    private void Move()
+    {
+        rb.MovePosition(transform.position + moveDirection * Time.deltaTime * 0.5f);
+    }
+    private void ChangeDestination()
+    {
+        moveDirection = new Vector3(Random.Range(-20.5f, 20.5f), 0, Random.Range(-9.5f, 9.5f));
+        moveDirection = transform.TransformDirection(moveDirection);
     }
 }
