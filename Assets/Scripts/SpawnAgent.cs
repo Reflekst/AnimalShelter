@@ -4,15 +4,30 @@ using UnityEngine;
 
 public class SpawnAgent : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [SerializeField] GameObject agent;
+    [SerializeField] int maxAgentNumber;
+    [SerializeField] float spawnDelay;
+    private int xPos;
+    private int zPos;
+    private int agentCount;
+
+
     void Start()
     {
-        
+        StartCoroutine(Spawn());
     }
 
-    // Update is called once per frame
-    void Update()
+    private IEnumerator Spawn()
     {
-        
+        while (agentCount <= maxAgentNumber)
+        {
+            xPos = Random.Range(0, 10);
+            zPos = Random.Range(0, 10);
+            Instantiate(agent, new Vector3(xPos, 0.34f, zPos), Quaternion.identity);
+            yield return new WaitForSeconds(spawnDelay);
+            agentCount++;
+        }
     }
+
+
 }
