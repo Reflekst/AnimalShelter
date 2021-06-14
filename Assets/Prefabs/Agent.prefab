@@ -57,7 +57,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   agentData: {fileID: 11400000, guid: c3002e630c3668e449bc3fbb3887c5c0, type: 2}
-  clone: {fileID: 0}
 --- !u!23 &3856113821292309544
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -111,7 +110,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.1, y: 0.1, z: 1.1}
+  m_Size: {x: 1.2, y: 0.2, z: 1.2}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &4627684986656479673
 Rigidbody:

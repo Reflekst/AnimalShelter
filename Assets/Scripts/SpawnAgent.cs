@@ -5,8 +5,8 @@ using UnityEngine;
 public class SpawnAgent : MonoBehaviour
 {
     [SerializeField] GameObject agent;
-    [SerializeField] int maxAgentNumber;
-    [SerializeField] int spawnDelayMin, spawnDelayMax;
+    [SerializeField] private int maxAgentNumber;
+    [SerializeField] private int spawnDelayMin, spawnDelayMax;
     private int xPos;
     private int zPos;
     private int agentCount;

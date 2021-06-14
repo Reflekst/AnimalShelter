@@ -4,8 +4,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Agent", menuName = "Sc/Agent")]
 public class AgentDataScript : ScriptableObject
 {
-    private int healthPoint;
-    public bool lifeState;
+    [SerializeField] private int healthPoint;
     private void OnEnable()
     {
         healthPoint = 3;   
@@ -14,21 +13,14 @@ public class AgentDataScript : ScriptableObject
     public void TakeDamage()
     {
         healthPoint--;
-        if (healthPoint == 0)
-        {
-            Death();
-        }
     }
 
-    private void Death()
-    {
-        lifeState = false;
-    }
+ 
     public bool CheckLifestate
     {
         get
         {
-            return lifeState;
+            return 0 >= healthPoint;
         }
     }
 }

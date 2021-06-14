@@ -9,8 +9,6 @@ public class AgentController : MonoBehaviour
     private Rigidbody rb;
     private Vector3 moveDirection;
 
-
-
     private void Start()
     {
         clone = Object.Instantiate(agentData);
@@ -37,12 +35,11 @@ public class AgentController : MonoBehaviour
         if (other.CompareTag("AgentTag"))
         {
             clone.TakeDamage();
-            if (!clone.CheckLifestate)
+            if (clone.CheckLifestate)
             {
                 Destroy(gameObject);
             }
         }
-
     }
 
     private void OnTriggerStay(Collider other)
