@@ -14,7 +14,6 @@ public class AgentDataScript : ScriptableObject
     {
         healthPoint--;
     }
-
  
     public bool CheckLifestate
     {

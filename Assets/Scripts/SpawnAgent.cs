@@ -7,35 +7,29 @@ public class SpawnAgent : MonoBehaviour
     [SerializeField] GameObject agent;
     [SerializeField] private int maxAgentNumber;
     [SerializeField] private int spawnDelayMin, spawnDelayMax;
+    [SerializeField] private bool continueSpawning = true;
     private int xPos;
     private int zPos;
-    public static int agentCount;
-
 
     void Start()
     {
         StartCoroutine(Spawn());
     }
-    private void Update()
-    {
-        
-    }
     private IEnumerator Spawn()
     {
-        while (agentCount < maxAgentNumber)
+        while (continueSpawning)
         {
-            agentCount++;
-            xPos = Random.Range(0, 10);
-            zPos = Random.Range(0, 10);
-            Instantiate(agent, new Vector3(xPos, 0.34f, zPos), Quaternion.identity);
-            yield return new WaitForSeconds(Random.Range(spawnDelayMin, spawnDelayMax));
+            if (GameObject.FindGameObjectsWithTag("AgentTag").Length < maxAgentNumber)
+            {
+                xPos = Random.Range(0, 10);
+                zPos = Random.Range(0, 10);
+                Instantiate(agent, new Vector3(xPos, 0.34f, zPos), Quaternion.identity);
+                yield return new WaitForSeconds(Random.Range(spawnDelayMin, spawnDelayMax));
+            }
+            else
+                yield return new WaitForSeconds(0);
         }
     }
-    public static void OneLess()
-    {
-        agentCount--;
-    }
-
 }
 
 

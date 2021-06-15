@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ObjectSelector : MonoBehaviour
+public class UiMenager : MonoBehaviour
 {
     public GameObject agentTemplate;
     public Text nameText, hpText, counterText;
@@ -22,7 +22,7 @@ public class ObjectSelector : MonoBehaviour
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(ray, out hit, 100.0f))
         {
-            if (hit.collider.tag == "AgentTag")
+            if (hit.collider.CompareTag("AgentTag"))
             {
                 AgentController target = hit.transform.GetComponent<AgentController>();
                 if (target != null)
