@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class AgentController : MonoBehaviour
 {
-    public  AgentDataScript agentData; 
-    private AgentDataScript clone; 
+    public AgentDataScript agentData, clone;
     private Rigidbody rb;
     private Vector3 moveDirection;
     public int health;
@@ -39,7 +38,6 @@ public class AgentController : MonoBehaviour
             if (clone.CheckLifestate)
             {
                 Destroy(gameObject);
-                health = clone.CheckLifeValue;
                 SpawnAgent.OneLess();
             }
         }

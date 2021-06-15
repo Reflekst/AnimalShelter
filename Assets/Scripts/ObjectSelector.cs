@@ -7,15 +7,14 @@ public class ObjectSelector : MonoBehaviour
 {
     public GameObject agentTemplate;
     public Text nameText, hpText;
-    public string targetName;
-    public int targetHp;
+    private string targetName;
+    private int targetHp;
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
         {
             Scan();
         }
-
     }
     private void Scan()
     {
@@ -27,7 +26,7 @@ public class ObjectSelector : MonoBehaviour
             {
                 AgentController target = hit.transform.GetComponent<AgentController>();
                 targetName = target.name;
-                targetHp = target.health;
+                targetHp = target.clone.CheckLifeValue;
                 ShowUi();
             }
             else
