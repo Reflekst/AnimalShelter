@@ -9,23 +9,33 @@ public class SpawnAgent : MonoBehaviour
     [SerializeField] private int spawnDelayMin, spawnDelayMax;
     private int xPos;
     private int zPos;
-    private int agentCount;
+    public static int agentCount;
 
 
     void Start()
     {
-        InvokeRepeating("Spawn", 0, 1);
+        StartCoroutine(Spawn());
     }
-
-    private void Spawn()
+    private void Update()
     {
+        
+    }
+    private IEnumerator Spawn()
+    {
+        while (agentCount < maxAgentNumber)
         {
+            agentCount++;
             xPos = Random.Range(0, 10);
             zPos = Random.Range(0, 10);
             Instantiate(agent, new Vector3(xPos, 0.34f, zPos), Quaternion.identity);
-            agentCount++;
+            yield return new WaitForSeconds(Random.Range(spawnDelayMin, spawnDelayMax));
         }
     }
-
+    public static void OneLess()
+    {
+        agentCount--;
+    }
 
 }
+
+

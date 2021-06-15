@@ -23,4 +23,11 @@ public class AgentDataScript : ScriptableObject
             return 0 >= healthPoint;
         }
     }
+    public int CheckLifeValue
+    {
+        get
+        {
+            return healthPoint;
+        }
+    }
 }

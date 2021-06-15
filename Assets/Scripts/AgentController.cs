@@ -8,6 +8,7 @@ public class AgentController : MonoBehaviour
     private AgentDataScript clone; 
     private Rigidbody rb;
     private Vector3 moveDirection;
+    public int health;
 
     private void Start()
     {
@@ -38,6 +39,8 @@ public class AgentController : MonoBehaviour
             if (clone.CheckLifestate)
             {
                 Destroy(gameObject);
+                health = clone.CheckLifeValue;
+                SpawnAgent.OneLess();
             }
         }
     }
